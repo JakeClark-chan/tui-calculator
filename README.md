@@ -63,5 +63,6 @@ This project is open-sourced under the MIT license.
 
 ## TODO
 - [ ] Styling
-- [ ] Handling when content out of display
-- [ ] More feature like memory, scentific
+- [ ] Handling when content out of display (you can use arrow to scroll)
+- [ ] Memory (M, M+, M-)
+- [ ] Scentific calculation (percentage, square, square root)

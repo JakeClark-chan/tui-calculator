@@ -95,7 +95,7 @@ impl Calculator {
                     result /= num;
                 }
             }
-            None => self.error = Some(Error::UndefinedOperation),
+            None => result = num,
         }
         // Delete display, update answer to screen and delete operation
         self.display = result.to_string();
