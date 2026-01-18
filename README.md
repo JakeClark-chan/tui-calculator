@@ -15,6 +15,11 @@ A robust, interactive Terminal User Interface (TUI) calculator built with **Rust
 -   **Dynamic Feedback**: UI updates titles based on current operation (e.g., "Adding...", "Result").
 -   **Safe**: Handles division by zero and undefined operations gracefully.
 
+## Screenshot
+![UI of calculator](./image-demo/calc-ui.png)
+![Show Adding](./image-demo/calc-adding.png)
+![Division by Zero Error](./image-demo/calc-divbyzero.png)
+
 ## 🚀 Getting Started
 
 ### Prerequisites
