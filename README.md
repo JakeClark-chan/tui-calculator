@@ -68,6 +68,7 @@ This project is open-sourced under the MIT license.
 
 ## TODO
 - [ ] Styling
+- [ ] Floating input (5.2, 1.34)
 - [ ] Handling when content out of display (you can use arrow to scroll)
 - [ ] Memory (M, M+, M-)
 - [ ] Scentific calculation (percentage, square, square root)
