@@ -182,35 +182,37 @@ where
             }
             // Giữ nguyên phần xử lý KeyCode hiện tại của bạn ở đây...
             Event::Key(key) => {
-                match key.code {
-                    KeyCode::Char('q') => return Ok(()),
-                    // Nếu là phím ký tự từ '0' đến '9'
-                    KeyCode::Char(c) if c.is_digit(10) => {
-                        // Chuyền số vào máy tính (c.to_digit(10) trả về Option<u32>)
-                        if let Some(digit) = c.to_digit(10) {
-                            calc.input_digit(digit as u8);
+                if key.kind == event::KeyEventKind::Press {
+                    match key.code {
+                        KeyCode::Char('q') => return Ok(()),
+                        // Nếu là phím ký tự từ '0' đến '9'
+                        KeyCode::Char(c) if c.is_digit(10) => {
+                            // Chuyền số vào máy tính (c.to_digit(10) trả về Option<u32>)
+                            if let Some(digit) = c.to_digit(10) {
+                                calc.input_digit(digit as u8);
+                            }
                         }
+                        // Nếu là phím +, -, *, /
+                        KeyCode::Char('+') => {
+                            calc.set_operation(Operation::Add);
+                        }
+                        KeyCode::Char('-') => {
+                            calc.set_operation(Operation::Subtract);
+                        }
+                        KeyCode::Char('*') => {
+                            calc.set_operation(Operation::Multiply);
+                        }
+                        KeyCode::Char('/') => {
+                            calc.set_operation(Operation::Divide);
+                        }
+                        KeyCode::Char('=') | KeyCode::Enter => {
+                            calc.calculate();
+                        }
+                        KeyCode::Char('c') => {
+                            calc.clear();
+                        }
+                        _ => {}
                     }
-                    // Nếu là phím +, -, *, /
-                    KeyCode::Char('+') => {
-                        calc.set_operation(Operation::Add);
-                    }
-                    KeyCode::Char('-') => {
-                        calc.set_operation(Operation::Subtract);
-                    }
-                    KeyCode::Char('*') => {
-                        calc.set_operation(Operation::Multiply);
-                    }
-                    KeyCode::Char('/') => {
-                        calc.set_operation(Operation::Divide);
-                    }
-                    KeyCode::Char('=') | KeyCode::Enter => {
-                        calc.calculate();
-                    }
-                    KeyCode::Char('c') => {
-                        calc.clear();
-                    }
-                    _ => {}
                 }
             }
             _ => {}
